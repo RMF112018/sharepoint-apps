@@ -36,7 +36,12 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-explicit-any': ['warn', { ignoreRestArgs: true }],
-    '@typescript-eslint/explicit-function-return-type': 'warn'
+    '@typescript-eslint/explicit-function-return-type': 'warn',
+    // A11y stricter checks
+    'jsx-a11y/tabindex-no-positive': 'error',
+    'jsx-a11y/anchor-is-valid': 'error',
+    'jsx-a11y/no-static-element-interactions': 'warn',
+    'jsx-a11y/click-events-have-key-events': 'error'
   },
   ignorePatterns: ['dist', 'lib', 'temp', 'coverage', '*.config.cjs']
 };
