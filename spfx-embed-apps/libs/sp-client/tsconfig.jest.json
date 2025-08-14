@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist-jest",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2021",
+    "jsx": "react-jsx",
+    "isolatedModules": true
+  },
+  "include": ["src/**/*"]
+}
+
+
