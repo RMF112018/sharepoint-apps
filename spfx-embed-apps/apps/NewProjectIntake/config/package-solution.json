@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "new-project-intake-client-side-solution",
+    "id": "8d0f3a2c-7e1c-4d0e-9f8a-b6b3d11c6e2a",
+    "version": "1.0.2.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "HBI",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "iconPath": "teams/c2a9b8e1-0f1d-4e7a-9b3f-2a6d4c1e9f7a_color.png",
+      "shortDescription": {
+        "default": "New Project Intake web part to capture a project title and notes and submit to a SharePoint list."
+      },
+      "longDescription": {
+        "default": "New Project Intake web part to capture a project title and notes and submit to a SharePoint list for intake purposes."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": ["Productivity"]
+    },
+    "features": [
+      {
+        "title": "New Project Intake Feature",
+        "description": "Activates client-side assets for the New Project Intake solution.",
+        "id": "f2c6a1b4-2a3d-4e9c-9c9b-e2f7a4c3d1b0",
+        "version": "1.0.0.0"
+      }
+    ],
+    "webApiPermissionRequests": [
+      { "resource": "Microsoft Graph", "scope": "People.Read" },
+      { "resource": "Microsoft Graph", "scope": "User.ReadBasic.All" }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/new-project-intake.sppkg"
+  }
+}

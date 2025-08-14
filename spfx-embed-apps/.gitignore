@@ -1,29 +1,34 @@
-# Node / pnpm
-node_modules/
-pnpm-debug.log*
+# Logs
+logs
+*.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Build outputs
-dist/
-lib/
-temp/
-coverage/
-.nyc_output/
+# Dependency directories
+node_modules
 
-# SPFx artifacts
-sharepoint/solution/*.sppkg
-**/*.sppkg
+# Build generated files
+dist
+lib
+release
+solution
+temp
+*.sppkg
+.heft
 
-# Editor / OS
+# Coverage directory used by tools like istanbul
+coverage
+
+# OSX
 .DS_Store
-.vscode/
-.idea/
-.history/
 
-# Env and local
-.env
-.env.*.local
+# Visual Studio files
+.ntvs_analysis.dat
+.vs
+bin
+obj
 
+# Resx Generated Code
+*.resx.ts
 
+# Styles Generated Code
+*.scss.ts

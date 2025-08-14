@@ -1,0 +1,24 @@
+[
+  {
+    "field_key": "tabReqD",
+    "label": "Tab Req'd?",
+    "group": "Project Info",
+    "suggested_type": "Boolean",
+    "required": false,
+    "help_text": "",
+    "choice_options": [],
+    "default": false,
+    "multi_select": false
+  },
+  {
+    "field_key": "responsibilityMatrixForNonNegotiatedProjects",
+    "label": "RESPONSIBILITY MATRIX FOR NON-NEGOTIATED PROJECTS",
+    "group": "Project Info",
+    "suggested_type": "Text",
+    "required": false,
+    "help_text": "",
+    "choice_options": [],
+    "default": "",
+    "multi_select": false
+  }
+]

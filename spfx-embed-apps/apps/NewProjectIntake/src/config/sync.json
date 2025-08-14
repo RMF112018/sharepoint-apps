@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1",
+  "endpointUrl": "",
+  "apiKey": "",
+  "killSwitch": false,
+  "retry": {
+    "initialMs": 2000,
+    "maxMs": 60000
+  }
+}

@@ -18,7 +18,18 @@ module.exports = {
     '^@pnp/sp/.*$': '<rootDir>/src/__mocks__/pnp-empty.js',
     '^@pnp/sp$': '<rootDir>/src/__mocks__/pnp-empty.js',
   },
-  collectCoverageFrom: ['src/**/*.ts', '!src/**/__tests__/**'],
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    '!src/**/__tests__/**',
+    '!src/index.ts',
+    '!src/spfiFactory.ts'
+  ],
+  coverageThreshold: {
+    global: {
+      lines: 80,
+      statements: 80
+    }
+  }
 };
 
 

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "canonicalSiteRelativeUrl": "/sites/Preconstruction",
+  "lists": {
+    "canonicalFactsListTitle": "Project Facts (Canonical)",
+    "projectSiteFactsListTitle": "Project Facts",
+    "syncQueueListTitle": "Project Facts Sync Queue",
+    "auditListTitle": "Project Audit"
+  },
+  "mappings": [
+    {
+      "field_key": "tabReqD",
+      "canonical_list": "Project Facts (Canonical)",
+      "site_list": "Project Facts",
+      "column_internal_name": "tabReqD",
+      "type": "Boolean",
+      "is_canonical": true,
+      "is_editable_on_project_site": true,
+      "validation_rules": { "required": false }
+    },
+    {
+      "field_key": "responsibilityMatrixForNonNegotiatedProjects",
+      "canonical_list": "Project Facts (Canonical)",
+      "site_list": "Project Facts",
+      "column_internal_name": "responsibilityMatrixForNonNegotiatedProjects",
+      "type": "Text",
+      "is_canonical": true,
+      "is_editable_on_project_site": true,
+      "validation_rules": { "required": false }
+    }
+  ]
+}

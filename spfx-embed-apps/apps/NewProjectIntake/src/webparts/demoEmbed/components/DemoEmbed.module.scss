@@ -1,0 +1,475 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+// Spacing scale
+$s-4: 4px;
+$s-8: 8px;
+$s-12: 12px;
+$s-16: 16px;
+$s-20: 20px;
+$s-24: 24px;
+$s-32: 32px;
+
+// Enhanced breakpoints for better responsive design
+$bp-xs: 320px;   // Extra small phones
+$bp-sm: 480px;   // Small phones
+$bp-md: 768px;   // Tablets
+$bp-lg: 1024px;  // Small desktops
+$bp-xl: 1200px;  // Large desktops
+$bp-xxl: 1400px; // Extra large screens
+
+.demoEmbed {
+  overflow: hidden;
+  padding: $s-16;
+  color: "[theme:bodyText, default: #323130]";
+  color: var(--bodyText);
+  background: var(--background);
+  position: relative;
+  
+  // Responsive padding
+  @media (max-width: $bp-md) {
+    padding: $s-12;
+  }
+  
+  @media (max-width: $bp-sm) {
+    padding: $s-8;
+  }
+  
+  &.teams {
+    font-family: $ms-font-family-fallbacks;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  
+  // Responsive max-width constraints
+  @media (min-width: $bp-xxl) {
+    max-width: 1200px;
+  }
+  
+  @media (min-width: $bp-xl) and (max-width: $bp-xxl) {
+    max-width: 1100px;
+  }
+  
+  @media (min-width: $bp-lg) and (max-width: $bp-xl) {
+    max-width: 100%;
+    padding: 0 $s-16;
+  }
+  
+  @media (max-width: $bp-lg) {
+    padding: 0 $s-12;
+  }
+  
+  @media (max-width: $bp-sm) {
+    padding: 0 $s-8;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $s-24; // increased gap for better breathing room
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: $s-16;
+  }
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: $s-12;
+  }
+}
+
+.hero {
+  text-align: center;
+  grid-column: 1 / span 4; // reduced from 7 to 4 columns for more form space
+
+  @media (max-width: $bp-lg) {
+    grid-column: 1 / span 4; // reduced from 6 to 4 columns
+  }
+
+  @media (max-width: $bp-md) {
+    grid-column: 1 / -1; // stack
+  }
+}
+
+.welcome {
+  text-align: left; // left align to make more compact
+  padding: $s-16 $s-12; // reduce horizontal padding
+}
+
+.welcomeImage {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: $s-16;
+}
+
+.heroHeader {
+  margin-bottom: $s-16;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 24px; // reduced from 28px
+  line-height: 30px; // reduced from 36px
+  font-weight: 600;
+}
+
+.heroSubtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: "[theme:neutralPrimary, default:#323130]";
+}
+
+.userChip {
+  background: var(--cardBg, "[theme:white, default:#ffffff]");
+  border: 1px solid var(--cardBorder, "[theme:neutralLight, default:#e1dfdd]");
+  border-radius: 999px;
+  padding: 2px $s-8;
+}
+
+.formCol {
+  // Use full width since we moved the title above
+  grid-column: 1 / -1; // full width
+  width: 100%;
+  max-width: 100%;
+}
+
+.card {
+  background: var(--cardBg, "[theme:white, default:#ffffff]");
+  border: 1px solid var(--cardBorder, "[theme:neutralLight, default:#e1dfdd]");
+  border-radius: 6px;
+  padding: $s-20;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  width: 100%;
+  box-sizing: border-box;
+  
+  // Responsive padding
+  @media (max-width: $bp-md) {
+    padding: $s-16;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: $bp-sm) {
+    padding: $s-12;
+    border-radius: 4px;
+    margin: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+}
+
+.cardHeader {
+  margin-bottom: $s-20;
+  font-weight: 600;
+  font-size: 16px;
+  color: #323130;
+  
+  @media (max-width: $bp-md) {
+    margin-bottom: $s-16;
+    font-size: 15px;
+  }
+  
+  @media (max-width: $bp-sm) {
+    margin-bottom: $s-12;
+    font-size: 14px;
+  }
+}
+
+.formFields {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  
+  // Responsive spacing between form elements
+  > * + * {
+    margin-top: $s-16;
+    
+    @media (max-width: $bp-md) {
+      margin-top: $s-12;
+    }
+    
+    @media (max-width: $bp-sm) {
+      margin-top: $s-8;
+    }
+  }
+}
+
+.toastContainer {
+  position: absolute;
+  top: $s-16;
+  right: $s-16;
+  z-index: 1;
+  max-width: 360px;
+  opacity: 0.85; // make notifications more subtle
+}
+
+// Subtle notification styling
+.subtleNotification {
+  background: var(--neutralLighter, "#f3f2f1") !important;
+  border: 1px solid var(--neutralLight, "#e1dfdd") !important;
+  color: var(--neutralSecondary, "#605e5c") !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+  
+  // Subtle buttons
+  button {
+    background: var(--neutralLighter, "#f3f2f1") !important;
+    border: 1px solid var(--neutralTertiary, "#c8c6c4") !important;
+    color: var(--neutralPrimary, "#323130") !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    min-height: 24px !important;
+    
+    &:hover {
+      background: var(--neutralLight, "#e1dfdd") !important;
+    }
+  }
+}
+
+.links {
+  a {
+    text-decoration: none;
+    color: "[theme:link, default:#03787c]";
+    color: var(--link);
+
+    &:hover {
+      text-decoration: underline;
+      color: "[theme:linkHovered, default: #014446]";
+      color: var(--linkHovered);
+    }
+  }
+}
+
+// Responsive form grid for two-column layout
+:global(.responsive-form-grid) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+  
+  @media (max-width: $bp-sm) {
+    gap: 12px;
+  }
+}
+
+// Enhanced table styling - remove borders, cleaner look with responsive design
+:global(.clean-table) {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+  overflow-x: auto;
+  display: block;
+  white-space: nowrap;
+  
+  @media (min-width: $bp-md) {
+    display: table;
+    white-space: normal;
+  }
+  
+  thead, tbody, tr {
+    display: block;
+    
+    @media (min-width: $bp-md) {
+      display: table-row-group;
+    }
+  }
+  
+  tr {
+    @media (min-width: $bp-md) {
+      display: table-row;
+    }
+  }
+  
+  th, td {
+    display: inline-block;
+    vertical-align: top;
+    
+    @media (min-width: $bp-md) {
+      display: table-cell;
+    }
+  }
+  
+  thead th {
+    background: #faf9f8;
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 2px solid #e1dfdd;
+    font-weight: 600;
+    font-size: 14px;
+    color: #323130;
+    text-align: left;
+    min-width: 120px;
+    
+    @media (max-width: $bp-md) {
+      padding: 8px 12px;
+      font-size: 12px;
+      min-width: 100px;
+    }
+    
+    @media (max-width: $bp-sm) {
+      padding: 6px 8px;
+      font-size: 11px;
+      min-width: 80px;
+    }
+    
+    &:first-child {
+      border-radius: 6px 0 0 0;
+      
+      @media (max-width: $bp-md) {
+        border-radius: 4px 0 0 0;
+      }
+    }
+    
+    &:last-child {
+      border-radius: 0 6px 0 0;
+      
+      @media (max-width: $bp-md) {
+        border-radius: 0 4px 0 0;
+      }
+    }
+  }
+  
+  tbody td {
+    padding: 12px 16px;
+    border: none;
+    border-bottom: 1px solid #f3f2f1;
+    vertical-align: top;
+    background: white;
+    min-width: 120px;
+    
+    @media (max-width: $bp-md) {
+      padding: 8px 12px;
+      min-width: 100px;
+    }
+    
+    @media (max-width: $bp-sm) {
+      padding: 6px 8px;
+      min-width: 80px;
+    }
+    
+    &:first-child {
+      font-weight: 500;
+    }
+  }
+  
+  tbody tr {
+    transition: background-color 0.15s ease;
+    
+    &:hover {
+      background: #faf9f8;
+      
+      td {
+        background: #faf9f8;
+      }
+    }
+    
+    &:last-child td {
+      border-bottom: none;
+      
+      &:first-child {
+        border-radius: 0 0 0 6px;
+        
+        @media (max-width: $bp-md) {
+          border-radius: 0 0 0 4px;
+        }
+      }
+      
+      &:last-child {
+        border-radius: 0 0 6px 0;
+        
+        @media (max-width: $bp-md) {
+          border-radius: 0 0 4px 0;
+        }
+      }
+    }
+  }
+}
+
+// Enhanced step tabs styling with responsive design
+:global(.ms-Pivot) {
+  border-bottom: 1px solid #e1dfdd;
+  margin-bottom: 24px !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  
+  @media (max-width: $bp-md) {
+    margin-bottom: 16px !important;
+  }
+  
+  @media (max-width: $bp-sm) {
+    margin-bottom: 12px !important;
+    border-bottom: 1px solid #f3f2f1;
+  }
+  
+  .ms-Pivot-link {
+    padding: 12px 20px !important;
+    margin: 0 4px !important;
+    border-radius: 6px 6px 0 0 !important;
+    font-weight: 500 !important;
+    color: #605e5c !important;
+    transition: all 0.15s ease !important;
+    position: relative !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    min-width: auto !important;
+    
+    @media (max-width: $bp-md) {
+      padding: 10px 16px !important;
+      margin: 0 2px !important;
+      font-size: 13px !important;
+    }
+    
+    @media (max-width: $bp-sm) {
+      padding: 8px 12px !important;
+      margin: 0 1px !important;
+      font-size: 12px !important;
+      border-radius: 4px 4px 0 0 !important;
+    }
+    
+    &:hover {
+      background: #f3f2f1 !important;
+      color: #323130 !important;
+    }
+    
+    &.is-selected {
+      background: white !important;
+      color: #0078d4 !important;
+      font-weight: 600 !important;
+      border: 1px solid #e1dfdd !important;
+      border-bottom: 1px solid white !important;
+      margin-bottom: -1px !important;
+      
+      @media (max-width: $bp-sm) {
+        border-bottom: 1px solid white !important;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: white;
+        
+        @media (max-width: $bp-sm) {
+          height: 1px;
+        }
+      }
+    }
+  }
+}

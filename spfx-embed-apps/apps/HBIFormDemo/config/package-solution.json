@@ -1,34 +1,35 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "demo-embed-client-side-solution",
+    "name": "hbi-form-demo-client-side-solution",
     "id": "804c482d-6f49-4e5f-bec6-eeeef567ca5a",
-    "version": "1.0.0.0",
+    "version": "1.0.1.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
+      "name": "HBI",
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": "Undefined-1.21.1"
     },
     "metadata": {
+      "iconPath": "teams/e1591550-ef8b-40ba-a691-a480993b6ee6_color.png",
       "shortDescription": {
-        "default": "Demo Embed description"
+        "default": "HBI Form Demo web part to capture a title and notes and submit to a SharePoint list."
       },
       "longDescription": {
-        "default": "Demo Embed description"
+        "default": "HBI Form Demo web part to capture a title and notes and submit to a SharePoint list for demonstration and training purposes."
       },
       "screenshotPaths": [],
       "videoUrl": "",
-      "categories": []
+      "categories": ["Productivity"]
     },
     "features": [
       {
-        "title": "demo-embed Feature",
-        "description": "The feature that activates elements of the demo-embed solution.",
+        "title": "HBI Form Demo Feature",
+        "description": "Activates client-side assets for the HBI Form Demo solution.",
         "id": "ac0c506f-54ea-4294-a587-023643b3e45b",
         "version": "1.0.0.0"
       }

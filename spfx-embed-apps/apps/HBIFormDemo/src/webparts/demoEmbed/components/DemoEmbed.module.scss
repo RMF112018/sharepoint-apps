@@ -1,34 +1,150 @@
 @import '~@fluentui/react/dist/sass/References.scss';
 
+// Spacing scale
+$s-4: 4px;
+$s-8: 8px;
+$s-12: 12px;
+$s-16: 16px;
+$s-24: 24px;
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
 .demoEmbed {
   overflow: hidden;
-  padding: 1em;
+  padding: $s-16;
   color: "[theme:bodyText, default: #323130]";
   color: var(--bodyText);
+  background: var(--background);
+  position: relative;
   &.teams {
     font-family: $ms-font-family-fallbacks;
   }
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1140px; // content width cap (960–1140px)
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $s-16;
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: $s-12;
+  }
+}
+
+.hero {
+  text-align: center;
+  grid-column: 1 / span 8;
+
+  @media (max-width: $bp-desktop) {
+    grid-column: 1 / span 7;
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-column: 1 / -1; // stack
+  }
+}
+
 .welcome {
   text-align: center;
+  padding: $s-16;
 }
 
 .welcomeImage {
   width: 100%;
   max-width: 420px;
+  margin-bottom: $s-16;
+}
+
+.heroHeader {
+  margin-bottom: $s-16;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+.heroSubtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: "[theme:neutralPrimary, default:#323130]";
+}
+
+.userChip {
+  background: var(--cardBg, "[theme:white, default:#ffffff]");
+  border: 1px solid var(--cardBorder, "[theme:neutralLight, default:#e1dfdd]");
+  border-radius: 999px;
+  padding: 2px $s-8;
+}
+
+.formCol {
+  grid-column: 9 / -1;
+
+  @media (max-width: $bp-desktop) {
+    grid-column: 8 / -1;
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-column: 1 / -1; // stack
+  }
+}
+
+.card {
+  background: var(--cardBg, "[theme:white, default:#ffffff]");
+  border: 1px solid var(--cardBorder, "[theme:neutralLight, default:#e1dfdd]");
+  border-radius: 6px;
+  padding: $s-16;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.cardHeader {
+  margin-bottom: $s-16;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.formFields {
+  max-width: 480px;
+}
+
+.toastContainer {
+  position: absolute;
+  top: $s-16;
+  right: $s-16;
+  z-index: 1;
+  max-width: 360px;
 }
 
 .links {
   a {
     text-decoration: none;
     color: "[theme:link, default:#03787c]";
-    color: var(--link); // note: CSS Custom Properties support is limited to modern browsers only
+    color: var(--link);
 
     &:hover {
       text-decoration: underline;
       color: "[theme:linkHovered, default: #014446]";
-      color: var(--linkHovered); // note: CSS Custom Properties support is limited to modern browsers only
+      color: var(--linkHovered);
     }
   }
 }

@@ -1,8 +1,13 @@
 define([], function() {
   return {
-    "PropertyPaneDescription": "Description",
-    "BasicGroupName": "Group Name",
-    "DescriptionFieldLabel": "Description Field",
+    "PropertyPaneDescription": "Configure the HBI Form Demo web part.",
+    "BasicGroupName": "General",
+    "DescriptionFieldLabel": "Web part description",
+    "TargetListNameLabel": "Target list name",
+    "ShowHeroLabel": "Show hero illustration",
+    "CompactModeLabel": "Compact mode",
+    "ToggleOnText": "On",
+    "ToggleOffText": "Off",
     "AppLocalEnvironmentSharePoint": "The app is running on your local environment as SharePoint web part",
     "AppLocalEnvironmentTeams": "The app is running on your local environment as Microsoft Teams app",
     "AppLocalEnvironmentOffice": "The app is running on your local environment in office.com",

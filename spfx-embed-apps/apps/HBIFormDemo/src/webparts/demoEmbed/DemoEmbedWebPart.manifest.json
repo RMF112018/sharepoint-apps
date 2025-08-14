@@ -18,11 +18,15 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
     "group": { "default": "Advanced" },
-    "title": { "default": "Demo Embed" },
-    "description": { "default": "Demo Embed description" },
-    "officeFabricIconFontName": "Page",
+    "title": { "default": "HBI Form Demo" },
+    "description": { "default": "Sample form to submit a title and notes to a SharePoint list." },
+    "officeFabricIconFontName": "Edit",
+    "keywords": ["form", "list item", "demo", "training"],
     "properties": {
-      "description": "Demo Embed"
+      "description": "Enter a short description to show on the web part.",
+      "targetListName": "CursorDemo",
+      "showHero": true,
+      "compactMode": false
     }
   }]
 }

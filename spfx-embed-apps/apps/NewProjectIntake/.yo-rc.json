@@ -1,0 +1,24 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.21.1",
+    "libraryName": "HBIFormDemo",
+    "libraryId": "00000000-0000-0000-0000-000000000000",
+    "packageManager": "pnpm",
+    "isDomainIsolated": false,
+    "componentType": "webpart",
+    "framework": "react",
+    "webparts": [
+      {
+        "name": "HBIFormDemo",
+        "description": "HBI Form Demo web part",
+        "framework": "react"
+      }
+    ],
+    "solutionName": "HBIFormDemo",
+    "skipFeatureDeployment": true
+  }
+}
+
+{"@microsoft/generator-sharepoint":{"isCreatingSolution":true,"environment":"spo","version":"1.21.1","libraryName":"HBIFormDemo","libraryId":"00000000-0000-0000-0000-000000000000","packageManager":"pnpm","isDomainIsolated":false,"componentType":"webpart","framework":"react","webparts":[{"name":"HBIFormDemo","description":"HBI Form Demo web part","framework":"react"}],"solutionName":"HBIFormDemo","skipFeatureDeployment":true}}

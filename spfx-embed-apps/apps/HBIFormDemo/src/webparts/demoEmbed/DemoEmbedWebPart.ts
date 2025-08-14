@@ -3,10 +3,18 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   type IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneToggle
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
+
+type ExtendedTheme = IReadonlyTheme & {
+  palette?: {
+    themePrimary?: string;
+    white?: string;
+  }
+};
 
 import * as strings from 'DemoEmbedWebPartStrings';
 import DemoEmbed from './components/DemoEmbed';
@@ -14,6 +22,9 @@ import { IDemoEmbedProps } from './components/IDemoEmbedProps';
 
 export interface IDemoEmbedWebPartProps {
   description: string;
+  targetListName?: string;
+  showHero?: boolean;
+  compactMode?: boolean;
 }
 
 export default class DemoEmbedWebPart extends BaseClientSideWebPart<IDemoEmbedWebPartProps> {
@@ -30,7 +41,10 @@ export default class DemoEmbedWebPart extends BaseClientSideWebPart<IDemoEmbedWe
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
         userDisplayName: this.context.pageContext.user.displayName,
-        context: this.context
+        context: this.context,
+        targetListName: this.properties.targetListName || 'CursorDemo',
+        showHero: this.properties.showHero !== false,
+        compactMode: !!this.properties.compactMode
       }
     );
 
@@ -86,6 +100,14 @@ export default class DemoEmbedWebPart extends BaseClientSideWebPart<IDemoEmbedWe
       this.domElement.style.setProperty('--bodyText', semanticColors.bodyText || null);
       this.domElement.style.setProperty('--link', semanticColors.link || null);
       this.domElement.style.setProperty('--linkHovered', semanticColors.linkHovered || null);
+      this.domElement.style.setProperty('--background', semanticColors.bodyBackground || null);
+      // Card/background surfaces
+      const bodyStandout: string | null = (currentTheme as ExtendedTheme).palette?.white || null;
+      const border: string | null = semanticColors.bodyDivider || null;
+      const accent: string | null = (currentTheme as ExtendedTheme).palette?.themePrimary || null;
+      this.domElement.style.setProperty('--cardBg', bodyStandout || semanticColors.bodyBackground || null);
+      this.domElement.style.setProperty('--cardBorder', border);
+      this.domElement.style.setProperty('--accent', accent);
     }
 
   }
@@ -111,6 +133,19 @@ export default class DemoEmbedWebPart extends BaseClientSideWebPart<IDemoEmbedWe
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneTextField('targetListName', {
+                  label: strings.TargetListNameLabel
+                }),
+                PropertyPaneToggle('showHero', {
+                  label: strings.ShowHeroLabel,
+                  onText: strings.ToggleOnText,
+                  offText: strings.ToggleOffText
+                }),
+                PropertyPaneToggle('compactMode', {
+                  label: strings.CompactModeLabel,
+                  onText: strings.ToggleOnText,
+                  offText: strings.ToggleOffText
                 })
               ]
             }
@@ -118,5 +153,9 @@ export default class DemoEmbedWebPart extends BaseClientSideWebPart<IDemoEmbedWe
         }
       ]
     };
+  }
+
+  protected get disableReactivePropertyChanges(): boolean {
+    return false;
   }
 }

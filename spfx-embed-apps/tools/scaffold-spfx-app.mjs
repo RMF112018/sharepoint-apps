@@ -167,6 +167,16 @@ async function main() {
   // Ensure deps and side-effects
   upsertPackageDependency(join(appDir, 'package.json'), '@hbi/sp-client', 'workspace:*');
   upsertPackageDependency(join(appDir, 'package.json'), '@pnp/sp', '^3.26.0');
+  // add useful scripts
+  try {
+    const appPkgPath = join(appDir, 'package.json');
+    const pkg = JSON.parse(readFileSync(appPkgPath, 'utf8'));
+    pkg.scripts ||= {};
+    pkg.scripts.serve = pkg.scripts.serve || 'gulp serve';
+    pkg.scripts['trust-cert'] = pkg.scripts['trust-cert'] || 'gulp trust-dev-cert';
+    pkg.scripts.package = pkg.scripts.package || 'gulp bundle --ship && gulp package-solution --ship';
+    writeFileSync(appPkgPath, JSON.stringify(pkg, null, 2) + '\n', 'utf8');
+  } catch {}
   addPnPjsSideEffects(join(appDir, 'src', 'index.ts'));
   patchServeJson(join(appDir, 'config', 'serve.json'));
   wireContextProp(join(appDir, 'src'));

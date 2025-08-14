@@ -73,3 +73,13 @@ export async function getListItems(sp: SPFI, params: GetListItemsParams) {
   return items();
 }
 
+export async function addItemsBatch<TFields extends object>(sp: SPFI, listTitle: string, rows: TFields[]): Promise<void> {
+  const list = sp.web.lists.getByTitle(listTitle);
+  const [batchedSP, execute] = await (sp as any).batched();
+  const blist = batchedSP.web.lists.getByTitle(listTitle);
+  for (const r of rows) {
+    blist.items.add(r as any);
+  }
+  await execute();
+}
+
