@@ -19,11 +19,25 @@ jobs:
           version: 10.13.1
       - name: Install
         run: pnpm install --frozen-lockfile=false
-      - name: Lint
+      - name: Lint all
         run: pnpm -r lint || true
-      - name: Type check (libs)
+      - name: Test libraries
+        run: pnpm --filter ./libs/... test || true
+      - name: Build libraries
         run: pnpm --filter ./libs/... build
-      - name: Build apps (no package restore)
-        run: pnpm --filter ./apps/... build || true
+      - name: Package apps (.sppkg)
+        run: |
+          set -e
+          for app in $(ls -d apps/*/); do
+            echo "Packaging $app"
+            (cd "$app" && pnpm run package || true)
+          done
+      - name: Upload .sppkg artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: sppkg-artifacts
+          path: |
+            apps/**/sharepoint/solution/*.sppkg
+            apps/**/solution/*.sppkg
 
 

@@ -8,8 +8,12 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "gulp bundle",
+    "serve": "gulp serve",
+    "trust-cert": "gulp trust-dev-cert",
+    "package": "gulp bundle --ship && gulp package-solution --ship",
     "clean": "gulp clean",
-    "test": "gulp test"
+    "test": "gulp test",
+    "lint": "gulp lint"
   },
   "dependencies": {
     "tslib": "2.3.1",
@@ -23,6 +27,8 @@
     "@microsoft/sp-lodash-subset": "1.21.1",
     "@microsoft/sp-office-ui-fabric-core": "1.21.1",
     "@hbi/sp-client": "workspace:*"
+    ,
+    "@pnp/sp": "^3.26.0"
   },
   "devDependencies": {
     "@microsoft/rush-stack-compiler-5.3": "0.1.0",
