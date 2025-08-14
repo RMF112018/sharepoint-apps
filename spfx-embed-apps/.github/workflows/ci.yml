@@ -20,9 +20,11 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile=false
       - name: Lint all
-        run: pnpm -r lint || true
+        run: pnpm -r lint
       - name: Test libraries
-        run: pnpm --filter ./libs/... test || true
+        run: pnpm --filter ./libs/... test
+      - name: Test apps
+        run: pnpm --filter ./apps/... test
       - name: Build libraries
         run: pnpm --filter ./libs/... build
       - name: Package apps (.sppkg)
