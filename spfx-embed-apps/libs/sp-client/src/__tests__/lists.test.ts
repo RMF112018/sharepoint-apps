@@ -64,7 +64,7 @@ describe("lists helpers", () => {
     expect(itemsStore).toHaveLength(1);
 
     const upd = await updateListItem(sp, { listTitle: "L", id: add.data.Id, fields: { Title: "B" } });
-    expect(upd.data.Title).toBe("B");
+    expect((upd as any).data.Title).toBe("B");
 
     await deleteListItem(sp, "L", add.data.Id);
     expect(itemsStore).toHaveLength(0);
